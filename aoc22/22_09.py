@@ -81,8 +81,7 @@ def part_2_update_tails(head_location, tails_locations, tails_locations_visited)
 
     return head_location, tails_locations, tails_locations_visited
 
-## Part 1
-
+## Part 1 & 2
 head_location = [0, 0]
 
 part_1_visited = set()
