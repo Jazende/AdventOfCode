@@ -9,7 +9,7 @@ locations = {
 }
 
 # Height/Width as read from locations, which is 0 indexed, so needs +1
-width = max(key[0] for key in locations.keys())+1
+width  = max(key[0] for key in locations.keys())+1
 height = max(key[1] for key in locations.keys())+1
 
 # Can be optimized for 1 outer loop if wanted
