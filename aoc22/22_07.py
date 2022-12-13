@@ -3,30 +3,6 @@ import re
 with open(r'22_07.txt', 'r') as f:
     raw_lines = f.read().strip()
 
-# raw_lines = '''$ cd /
-# $ ls
-# dir a
-# 14848514 b.txt
-# 8504156 c.dat
-# dir d
-# $ cd a
-# $ ls
-# dir e
-# 29116 f
-# 2557 g
-# 62596 h.lst
-# $ cd e
-# $ ls
-# 584 i
-# $ cd ..
-# $ cd ..
-# $ cd d
-# $ ls
-# 4060174 j
-# 8033020 d.log
-# 5626152 d.ext
-# 7214296 k'''
-
 re_base   = re.compile('\$ cd \/')
 re_cd     = re.compile('\$ cd (\w+)')
 re_ls     = re.compile('\$ ls')
@@ -88,7 +64,6 @@ base_folder    = None
 current_folder = None
 reading_folder = False
 
-count = 0
 for line in raw_lines.split('\n'):
     match reading_folder, line:
         case False, str if re_base.match(line):
