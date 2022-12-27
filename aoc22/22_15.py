@@ -74,27 +74,6 @@ print('Part 1: ', len(invalid_locations))
 def find_valid_range(invalid_ranges):
     return invalid_ranges[0][1]+1
 
-# def combine_two_ranges(range_one, range_two):
-#     if range_one[0] <= range_two[0] <= range_one[1] and range_one[0] <= range_two[1] <= range_one[1]:
-#         return (range_one[0], range_one[1])
-#     elif range_two[0] <= range_one[1] + 1:
-#         return (range_one[0], range_two[1])
-#     return False
-
-# def combine_ranges(ranges):
-#     idx = 0
-#     while True:
-#         if len(ranges) < 2 or idx + 1 >= len(ranges):
-#             break
-#         if new_range := combine_two_ranges(*ranges[idx:idx+2]):
-#             ranges.pop(idx+1)
-#             ranges.pop(idx)
-#             ranges.insert(idx, new_range)
-#             idx = 0
-#         else:
-#             idx += 1
-#     return ranges
-
 def combine_ranges(ranges):
     idx = 0
     while True:
@@ -104,7 +83,7 @@ def combine_ranges(ranges):
             ranges.pop(idx+1)
             idx = 0
         elif ranges[idx+1][0] <= ranges[idx][1] + 1:
-            ranges[idx] = (ranges[idx][0], ranges[idx+1][1])
+            ranges[idx][1] = ranges[idx+1][1]
             ranges.pop(idx+1)
             idx = 0
         else:
@@ -125,7 +104,7 @@ def invalid_locations_at_height(sensors, beacons, y):
         left_bound, right_bound = sensor.bounds_on_height(y)
         if left_bound >= right_bound:
             continue
-        raw_ranges.append((left_bound, right_bound))
+        raw_ranges.append([left_bound, right_bound])
     raw_ranges.sort()
 
     combined_ranges = combine_ranges(raw_ranges)
@@ -142,6 +121,6 @@ def find_valid_solutions(sensors, beacons, min_y, max_y):
         break
     return valid_range * 4_000_000 + height
 
-# cProfile.run('find_valid_solutions(sensors, beacons, min_y, max_y)')
+cProfile.run('find_valid_solutions(sensors, beacons, min_y, max_y)')
 solutions = find_valid_solutions(sensors, beacons, min_y, max_y)
 print('Part 2: ', solutions)
