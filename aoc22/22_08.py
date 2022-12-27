@@ -45,7 +45,7 @@ for col in range(width):
             locations[(col, row)][4] = True
             max_height = locations[(col, row)][0]
 
-print(sum(1 if any(v == True for v in values[1:5]) else 0 for values in locations.values()))
+print('Part 1:', sum(1 if any(v == True for v in values[1:5]) else 0 for values in locations.values()))
 
 max_scenic_score = 0
 for col in range(width):
@@ -84,4 +84,4 @@ for col in range(width):
         # multiply and check highest
         max_scenic_score = max(max_scenic_score, trees_visible_top * trees_visible_left * trees_visible_right * trees_visible_bottom)
 
-print(max_scenic_score)
+print('Part 2:', max_scenic_score)

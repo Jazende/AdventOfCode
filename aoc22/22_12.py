@@ -96,7 +96,7 @@ def calculate_path(starting_node, target_node, height_map):
 
     return len(target_node.shortest_path)-1
 
-print(f'Day 1: Length of path: {calculate_path(starting_node, target_node, height_map)}')
+print(f'Part 1: Length of path: {calculate_path(starting_node, target_node, height_map)}')
 
 def most_scenic_path(target, height_map):
     starting_nodes = [node for node in height_map.values() if node.height == 0 and any(n.char == 'b' for n in node.connections)]
@@ -113,4 +113,4 @@ def most_scenic_path(target, height_map):
     
     return best_path
 
-print(f'Day 2: Most Scenic Path: {most_scenic_path(target_node, height_map)}')
+print(f'Part 2: Most Scenic Path: {most_scenic_path(target_node, height_map)}')

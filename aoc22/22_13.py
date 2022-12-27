@@ -77,7 +77,7 @@ def compare_inputs(pairs):
     return None
 
 # 1-index count where ordered
-print('Day 1: ', sum(idx+1 for idx, value in enumerate(compare_inputs(pair) for pair in pairs) if value == True)) 
+print('Part 1:', sum(idx+1 for idx, value in enumerate(compare_inputs(pair) for pair in pairs) if value == True)) 
 
 divider_one = [[2]]
 divider_two = [[6]]
@@ -106,4 +106,4 @@ def sort_list(unsorted_list):
 
 sorted_list = sort_list(unsorted)
 
-print('Day 2: ', (sorted_list.index(divider_one)+1) * (sorted_list.index(divider_two)+1))
+print('Part 2:', (sorted_list.index(divider_one)+1) * (sorted_list.index(divider_two)+1))

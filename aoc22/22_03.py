@@ -14,7 +14,7 @@ def split_backpack_find_common_item(backpack):
     # return to list, take first item to get common
     return list(set(backpack[:len(backpack)//2]).intersection(set(backpack[len(backpack)//2:])))[0]
 
-print(sum(map(letter_to_score, map(split_backpack_find_common_item, raw_lines.split('\n')))))
+print('Part 1:', sum(map(letter_to_score, map(split_backpack_find_common_item, raw_lines.split('\n')))))
 
 def list_per_three_lines(all_backpacks):
     return [all_backpacks[(x*3):(x*3)+3] for x in range(len(all_backpacks)//3)]
@@ -22,4 +22,4 @@ def list_per_three_lines(all_backpacks):
 def common_item_in_backpacks(backpacks):
     return set(backpacks[0]).intersection(set(backpacks[1])).intersection(set(backpacks[2]))
 
-print(sum(map(letter_to_score, map(common_item_in_backpacks, list_per_three_lines(raw_lines.split('\n'))))))
+print('Part 2:', sum(map(letter_to_score, map(common_item_in_backpacks, list_per_three_lines(raw_lines.split('\n'))))))

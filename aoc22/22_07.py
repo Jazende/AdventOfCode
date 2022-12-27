@@ -99,7 +99,7 @@ folder_sizes = [folder.size_of_folder() for folder in folder_generator]
 
 # Get list of all sizes of folders smaller than cap and sum them 
 capped_folder_sizes = [folder_size for folder_size in folder_sizes if folder_size <= 100000]
-print('Day 1 Sum: ', sum(capped_folder_sizes))
+print('Part 1 Sum: ', sum(capped_folder_sizes))
 
 disk_size   = 70000000
 update_size = 30000000
@@ -109,4 +109,4 @@ size_to_free = base_folder.size_of_folder() - (disk_size-update_size)
 capped_folder_sizes = [folder_size for folder_size in folder_sizes if folder_size >= size_to_free]
 capped_folder_sizes.sort()
 
-print('Day 2 Smallest folder to delete:', capped_folder_sizes[0])
+print('Part 2 Smallest folder to delete:', capped_folder_sizes[0])

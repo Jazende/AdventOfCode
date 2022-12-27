@@ -40,5 +40,5 @@ for system_call in raw_lines.split('\n'):
     elif system_call.startswith('noop'):
         register.noop()
 
-print(sum(register.part_1_signal_strength))
-print(register.part_2_drawing)
+print('Part 1:', sum(register.part_1_signal_strength))
+print('Part 2:', register.part_2_drawing)

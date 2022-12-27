@@ -9,7 +9,7 @@ while True:
     four = four[1:] + raw_lines[idx+4]
     idx += 1
 
-print(idx+4)
+print('Part 1:', idx+4)
 
 fourteen = raw_lines[idx:idx+14]
 while True:
@@ -18,4 +18,4 @@ while True:
     fourteen = fourteen[1:] + raw_lines[idx+14]
     idx += 1
 
-print(idx+14)
+print('Part 2:', idx+14)

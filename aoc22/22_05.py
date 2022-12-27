@@ -28,7 +28,7 @@ def execute_order_9000(amount, from_, to_):
 for order in orders:
     execute_order_9000(*intify(order))
 
-print(''.join(crate[-1] for crate in crates))
+print('Part 1:', ''.join(crate[-1] for crate in crates))
 
 ## Day 2
 
@@ -51,4 +51,4 @@ def execute_order_9001(amount, from_, to_):
 for order in orders:
     execute_order_9001(*intify(order))
 
-print(''.join(crate[-1] for crate in crates))
+print('Part 1:', ''.join(crate[-1] for crate in crates))

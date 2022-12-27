@@ -12,7 +12,7 @@ def encompasses(assignment):
         return True
     return False
 
-print(sum(1 if encompasses(intify(assignment)) else 0 for assignment in assignments))
+print('Part 1:', sum(1 if encompasses(intify(assignment)) else 0 for assignment in assignments))
 
 def overlaps(assignment):
     if (assignment[2] <= assignment[0] <= assignment[3]) or \
@@ -22,4 +22,4 @@ def overlaps(assignment):
         return True
     return False
 
-print(sum(1 if overlaps(intify(assignment)) else 0 for assignment in assignments))
+print('Part 2:', sum(1 if overlaps(intify(assignment)) else 0 for assignment in assignments))

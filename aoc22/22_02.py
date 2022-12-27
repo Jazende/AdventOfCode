@@ -62,7 +62,7 @@ def rps_one(first, second):
     return score
 
 scores = [rps_one(*line.split(' ')) for line in raw_lines.split('\n')]
-print(sum(scores))
+print('Part 1:', sum(scores))
 
 def rps_two(their, result_to_get):
     enemy = translate_code[their]
@@ -71,4 +71,4 @@ def rps_two(their, result_to_get):
     return score
 
 adj_scores = [rps_two(*line.split(' ')) for line in raw_lines.split('\n')]
-print(sum(adj_scores))
+print('Part 2:', sum(adj_scores))

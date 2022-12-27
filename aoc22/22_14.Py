@@ -109,11 +109,11 @@ sand_origin = (500, 0)
 segments = translate_inputs(raw_lines)
 
 rock_wall = make_rock_wall(segments)
-print('Day 1: ', drop_all_sand(rock_wall, sand_origin))
+print('Part 1:', drop_all_sand(rock_wall, sand_origin))
 # print_rock_wall(rock_wall)
 
 ### Part 2 ###
 segments.append([335, 800, rock_wall['max_y']+2, rock_wall['max_y']+2])
 rock_wall = make_rock_wall(segments)
-print('Day 2: ', drop_all_sand(rock_wall, sand_origin)+1)
+print('Part 2:', drop_all_sand(rock_wall, sand_origin)+1)
 # print_rock_wall(rock_wall)
