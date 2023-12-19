@@ -62,7 +62,6 @@ total_score = 0
 hand_score = 1
 for hand in hands:
     bid = int(hand[1])
-    # print(f'{hand_score:4} | {bid:4} {hand[0]} > {hand_score*bid:>6} | {hands_value(hand)}')
     total_score += hand_score * bid
     hand_score += 1 
 print(total_score)
@@ -111,7 +110,6 @@ def parse_hands(raw_data):
     hand, bet = raw_data
     jokers = hand.count("J")
     other_letters = "".join(char for char in hand if not char == 'J')
-    # print(f'{hand=} {jokers=} {other_letters=}')
 
     if jokers == 0:
         return hands_value(hand)
@@ -119,13 +117,11 @@ def parse_hands(raw_data):
         return 7, 1, 1, 1, 1, 1
     else:
         max_value = 0, 0, 0, 0, 0, 0
-        # max_value_hand = None
         for other_letter in other_letters:
             new_hand = "".join(x for x in hand) 
             new_hand = new_hand.replace("J", other_letter, 1)
             
             parsed_value = parse_hands((new_hand, bet))
-            print(f'parsed {new_hand=} to be better than {max_value}')
             if parsed_value > max_value:
                 max_value = parsed_value
 
@@ -140,7 +136,6 @@ total_score = 0
 hand_score = 1
 for hand in hands:
     bid = int(hand[1])
-    # print(f'{hand_score:4} | {bid:4} {hand[0]} > {hand_score*bid:>6} | {parse_hands(tuple(hand))}')
     total_score += hand_score * bid
     hand_score += 1 
 print(total_score)
