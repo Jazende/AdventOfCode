@@ -38,6 +38,7 @@ def hash_value(sub_string):
 hashmap = [ [] for idx in range(256) ]
 
 for inp in raw_inputs.strip().split(','):
+
     box_nr = hash_value(inp)
 
     if inp.endswith('-'):
@@ -45,7 +46,7 @@ for inp in raw_inputs.strip().split(','):
 
         found_idx = -1
         for idx, text in enumerate(hashmap[box_nr]):
-            if label in text:
+            if label == text.split('=')[0]:
                 found_idx = idx
                 break
         if found_idx >= 0:
@@ -54,14 +55,13 @@ for inp in raw_inputs.strip().split(','):
         label, box = inp.split('=')
         found_idx = -1
         for idx, text in enumerate(hashmap[box_nr]):
-            if label in text:
+            if label == text.split('=')[0]:
                 found_idx = idx
                 break
         if found_idx >= 0:
             hashmap[box_nr][found_idx] = inp
         else:
             hashmap[box_nr].append(inp)
-
 
 score = 0
 for box_idx, box in enumerate(hashmap):
