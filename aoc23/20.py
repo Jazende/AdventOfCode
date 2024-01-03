@@ -215,98 +215,12 @@ while True:
 
 cycles = []
 for source in sources:
-    source_max = 0
+    source_cycle = 0
     for source_obj in sources[source]:
-        source_max = max(source_max, tracking_objs[source_obj][0])
+        source_cycle = max(source_cycle, tracking_objs[source_obj][0])
     
-    print(f'{source=} {sources[source]=} {source_max=}')
+    print(f'{source=} {sources[source]=} {source_cycle=}')
 
-    cycles.append(source_max)
+    cycles.append(source_cycle)
 
 print(math.lcm(*cycles))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# # tracking_objs = [ obj for obj in objects if objects[obj]['icon'] == '%' ] 
-# tracking_objs = [ 
-#     'jr', 'qh', 'hv', 'lt', 'bv', 'nz', 'bx', 'kt', 
-#     'mv', 'dp', 'zq', 'mf', 'xl', 'bj', 'kx', 
-#     'zm', 'xj', 'ts', 'bs', 'vt', 'fr', 'hz', 
-#     'mq', 'hr', 'tz', 'cb', 'xp', 'sj', 'vl', 'pd', 'hg', 'jf'
-# ]
-# cycled_values = { obj: [] for obj in tracking_objs }
-
-
-
-
-
-
-
-
-
-
-
-# for obj in tracking_objs:
-#     position_swaps = [0]
-#     cur_check = 1
-
-#     while True:
-#         try:
-#             idx = cycled_values[obj][position_swaps[-1]:].index(cur_check)
-#         except ValueError:
-#             break
-#         position_swaps.append(idx + position_swaps[-1])
-#         cur_check = [1, 0][cur_check]
-
-#     print(obj, cycled_values[obj][:20], position_swaps[:20])
-#     # print(obj, position_swaps[:20])
-
-
-# ## &bb -> rx
-# ##
-# ## &ct -> bb | &gt -> ct, pm, xh, gp, nn, bv     | 1   4   16    64 128     512 1024 2048 |-> 1749 / 3797
-# ## &kp -> bb | &xd -> kp, bg, ss, sn, mf, qb, fx | 1   4   16       128     512 1024 2048 |-> 1685 / 3733
-# ## &ks -> bb | &ms -> ks, br, nl, px, vg, vr, fr | 1 2           64     256 512 1024 2048 |-> 1859 / 3907
-# ## &xc -> bb | &zt -> xc, jl, jf, fh             | 1 2 4 8    32 64 128     512 1024 2048 |-> 1775 / 3823
-# ##
-
-# # def generator(first_incr, second_incr):
-# #     value = 0
-# #     while True:
-# #         value += first_incr
-# #         yield value
-# #         value += 2048
-# #         yield value
-
-# # gen_a = generator(1749)
-# # gen_b = generator(1685)
-# # gen_c = generator(1859)
-# # gen_d = generator(1775)
-
-# # max_value = 1 * 1749 * 1685 * 1859 * 1775
-
-# # max_value // 5 = reduced_value_1
-
-# # reduced_value % 1749 = 0
-# # etc
-
