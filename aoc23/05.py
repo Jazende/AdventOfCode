@@ -39,6 +39,9 @@ def get_values(line):
     return sorted([list(int(x) for x in y.split(' ')) for y in line.split(':')[1].strip().split('\n')], key=lambda x: x[1])
 
 raw_data = raw_inputs.split('\n\n')
+
+########################## DAY 5 PART 1 ########################## 
+
 seeds       = get_values(raw_data[0])[0]
 seeds_soil  = get_values(raw_data[1])
 soil_fert   = get_values(raw_data[2])
@@ -47,17 +50,6 @@ water_light = get_values(raw_data[4])
 light_temp  = get_values(raw_data[5])
 temp_humid  = get_values(raw_data[6])
 humid_loc   = get_values(raw_data[7])
-
-# print(f'{seeds=}')
-# print(f'{seeds_soil=}')
-# print(f'{soil_fert=}')
-# print(f'{fert_water=}')
-# print(f'{water_light=}')
-# print(f'{light_temp=}')
-# print(f'{temp_humid=}')
-# print(f'{humid_loc=}')
-
-########################## DAY 5 PART 1 ########################## 
 
 for conversions in [ seeds_soil, soil_fert, fert_water, water_light, light_temp, temp_humid, humid_loc, ]:
     new_seeds = [None for i in range(len(seeds))]
@@ -76,26 +68,27 @@ for conversions in [ seeds_soil, soil_fert, fert_water, water_light, light_temp,
     
     seeds = new_seeds
 
-print(f'{min(seeds)=}')
+# print(f'{min(seeds)=}')
 
 ########################## DAY 5 PART 2 ########################## 
 
-start = 0
-end = 0
-equal = True
-for soil in seeds_soil:
-    start = soil[1]
-    equal = start == end
-    end = soil[1] + soil[2]
+seeds       = get_values(raw_data[0])[0]
+seeds_soil  = get_values(raw_data[1])
+soil_fert   = get_values(raw_data[2])
+fert_water  = get_values(raw_data[3])
+water_light = get_values(raw_data[4])
+light_temp  = get_values(raw_data[5])
+temp_humid  = get_values(raw_data[6])
+humid_loc   = get_values(raw_data[7])
 
-    print(start, end, equal)
+seed_ranges = []
 
+for idx in range(0, len(seeds), 2):
+    seed_ranges.append(
+        (seeds[idx], seeds[idx] + seeds[idx + 1])
+    )
 
-start = 0
-end = 0
-equal = True
-for soil in soil_fert:
-    start = soil[1]
-    equal = start == end
-    print(start, end, equal)
-    end = soil[1] + soil[2]
+seed_ranges.sort()
+
+for seed_range in seed_ranges:
+    print(f'{seed_range[0]:>11} -> {seed_range[1]:>11}')
