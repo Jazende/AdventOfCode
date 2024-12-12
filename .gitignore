@@ -1,6 +1,8 @@
 # Input files
 *.txt
 
+*/unsolved/*.*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
