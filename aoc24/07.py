@@ -21,6 +21,29 @@ inputs = {int(line.split(':' )[0]): list(int(x) for x in line.split(': ')[1].spl
 
 def func_add(x, y): return x + y
 def func_mul(x, y): return x * y
+
+operators = [ func_add, func_mul, func_concat ]
+
+count = 0
+for result, inp in inputs.items():
+    for test in product(operators, repeat=len(inp)-1):
+        copy_inp = [x for x in inp]
+        test_result = copy_inp.pop(0)
+        test = [x for x in test]
+        while True:
+            if len(test) == 0:
+                break
+            test_result = test.pop(0)(test_result, copy_inp.pop(0))
+        if result == test_result:
+            count += test_result
+            break
+
+print(count)
+
+### Part 2 ###
+
+inputs = {int(line.split(':' )[0]): list(int(x) for x in line.split(': ')[1].split(' ')) for line in raw_inputs.strip().split('\n')}
+
 def func_concat(x, y): return int(f'{x}{y}')
 
 operators = [ func_add, func_mul, func_concat ]
