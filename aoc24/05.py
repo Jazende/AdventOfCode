@@ -36,7 +36,7 @@ raw_rules, raw_orders = raw_inputs.strip().split('\n\n')
 rules = [(int(x.split('|')[0]), int(x.split('|')[1])) for x in raw_rules.split('\n')]
 orders = [[int(x) for x in line.split(',')] for line in raw_orders.split('\n')]
 
-### Part 1
+### Part 1 ###
 
 count = 0
 incorrect_orders = []
@@ -63,7 +63,7 @@ print(count)
 # print(len(incorrect_orders))
 # print(incorrect_orders)
 
-### Part 2
+### Part 2 ###
 
 for order in incorrect_orders:
     while True:
